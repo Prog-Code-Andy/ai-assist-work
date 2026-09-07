@@ -1,0 +1,38 @@
+# Workstation Copy/Paste Prompts
+
+This directory is the chronological library of user-facing prompts copied from GitHub into Claude Code during the AI Assist Work implementation.
+
+## Purpose
+
+- Preserve every approved workstation instruction used during the project.
+- Let the user copy one complete prompt without reconstructing it from chat history.
+- Keep session-level instructions separate from `MASTER.md` and the authoritative phase prompts.
+- Provide a reviewable history on the long-lived `workstream/project-prompts` branch.
+
+## Naming
+
+Use a three-digit sequence and descriptive name:
+
+```text
+000-validate-control-and-application-repositories.md
+001-approve-and-start-phase-00.md
+002-phase-00-follow-up-*.md
+```
+
+Numbers describe the order in which prompts should be used. Never reuse or renumber a published prompt. A correction receives the next number and links to the prompt it replaces.
+
+## Rules
+
+1. Store only reusable instructions, never Claude responses or sensitive work content.
+2. Do not include workstation usernames, secrets, corporate messages, or machine-specific absolute paths.
+3. Reference `.project/workstation-config.local.json` for local paths.
+4. Every prompt states whether it can modify the application and whether phase approval is included.
+5. A workstation prompt cannot override Accepted EDRs, contracts, the approved roadmap, or phase gates.
+6. Adding a prompt to this library does not approve a phase.
+7. Keep this workstream branch unmerged until the user explicitly approves the final merge.
+
+## Prompt index
+
+| Sequence | Prompt | Purpose | Application changes authorized |
+|---:|---|---|---|
+| 000 | [Validate repositories and state](000-validate-control-and-application-repositories.md) | Confirm workstation readiness before Phase 00 | No |
