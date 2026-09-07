@@ -15,8 +15,9 @@ Use a three-digit sequence and descriptive name:
 
 ```text
 000-validate-control-and-application-repositories.md
-001-approve-and-start-phase-00.md
-002-phase-00-follow-up-*.md
+001-run-master-read-only-validation.md
+002-approve-and-start-phase-00.md
+003-phase-00-follow-up-*.md
 ```
 
 Numbers describe the order in which prompts should be used. Never reuse or renumber a published prompt. A correction receives the next number and links to the prompt it replaces.
@@ -36,3 +37,4 @@ Numbers describe the order in which prompts should be used. Never reuse or renum
 | Sequence | Prompt | Purpose | Application changes authorized |
 |---:|---|---|---|
 | 000 | [Validate repositories and state](000-validate-control-and-application-repositories.md) | Confirm workstation readiness before Phase 00 | No |
+| 001 | [Run master read-only validation](001-run-master-read-only-validation.md) | Correct the entry sequence when an individual phase prompt was opened directly | No |
