@@ -1,0 +1,86 @@
+{
+  "schema_version": 2,
+  "repository_purpose": "documentation-and-execution-control",
+  "application_code_allowed": false,
+  "overall_status": "awaiting_phase_00_approval",
+  "edr_status": "accepted",
+  "edr_accepted_at": "2026-09-06",
+  "report_contract_status": "accepted",
+  "roadmap_status": "approved",
+  "roadmap_approved_at": "2026-09-07",
+  "phases_status": "approved",
+  "phases_approved_at": "2026-09-07",
+  "prompts_status": "approved",
+  "prompts_approved_at": "2026-09-07",
+  "current_phase": "00",
+  "approved_phase": null,
+  "next_phase_approved": false,
+  "last_completed_phase": null,
+  "last_completion_report": "reports/planning/03-roadmap-phase-prompt-package.md",
+  "phase_order": ["00", "01", "02", "03", "04", "05", "06", "07", "08"],
+  "phases": [
+    {
+      "id": "00",
+      "name": "Audit and Project Protection",
+      "status": "awaiting_approval",
+      "report": null,
+      "learning_note": null
+    },
+    {
+      "id": "01",
+      "name": "SQLite, Settings, and Privacy Foundation",
+      "status": "not_approved",
+      "report": null,
+      "learning_note": null
+    },
+    {
+      "id": "02",
+      "name": "Observability, Logs, and Model Evaluation",
+      "status": "not_approved",
+      "report": null,
+      "learning_note": null
+    },
+    {
+      "id": "03",
+      "name": "Learning Capture, Grammar, and Sentence Review",
+      "status": "not_approved",
+      "report": null,
+      "learning_note": null
+    },
+    {
+      "id": "04",
+      "name": "Local Voice Input and macOS Permissions",
+      "status": "not_approved",
+      "report": null,
+      "learning_note": null
+    },
+    {
+      "id": "05",
+      "name": "Vocabulary System",
+      "status": "not_approved",
+      "report": null,
+      "learning_note": null
+    },
+    {
+      "id": "06",
+      "name": "Study Materials, Reports, and Export",
+      "status": "not_approved",
+      "report": null,
+      "learning_note": null
+    },
+    {
+      "id": "07",
+      "name": "PWA and macOS Packaging",
+      "status": "not_approved",
+      "report": null,
+      "learning_note": null
+    },
+    {
+      "id": "08",
+      "name": "Search and Future Dataset Readiness",
+      "status": "not_approved",
+      "report": null,
+      "learning_note": null
+    }
+  ]
+}

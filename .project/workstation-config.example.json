@@ -1,0 +1,7 @@
+{
+  "control_repository": "/absolute/path/to/ai-assist-work",
+  "application_repository": "/absolute/path/to/ai-assist-work-application",
+  "ollama_base_url": "http://127.0.0.1:11434",
+  "reports_location": "control_repository",
+  "learning_docs_location": "control_repository"
+}
