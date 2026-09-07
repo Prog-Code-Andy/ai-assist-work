@@ -1,0 +1,6 @@
+.DS_Store
+.env
+*.local
+*.tmp
+diagnostic-bundles/
+.project/workstation-config.local.json
