@@ -17,7 +17,8 @@ Use a three-digit sequence and descriptive name:
 000-validate-control-and-application-repositories.md
 001-run-master-read-only-validation.md
 002-audit-phase-01-test-scope.md
-003-next-approved-workstation-action.md
+003-inspect-stuck-browser-transcription.md
+004-next-approved-workstation-action.md
 ```
 
 Numbers describe the order in which prompts should be used. Never reuse or renumber a published prompt. A correction receives the next number and links to the prompt it replaces.
@@ -39,3 +40,4 @@ Numbers describe the order in which prompts should be used. Never reuse or renum
 | 000 | [Validate repositories and state](000-validate-control-and-application-repositories.md) | Confirm workstation readiness before Phase 00 | No |
 | 001 | [Run master read-only validation](001-run-master-read-only-validation.md) | Correct the entry sequence when an individual phase prompt was opened directly | No |
 | 002 | [Audit Phase 01 test scope](002-audit-phase-01-test-scope.md) | Verify targeted-test compliance without rerunning tests or starting Phase 02 | No |
+| 003 | [Inspect stuck browser transcription](003-inspect-stuck-browser-transcription.md) | Trace the microphone-to-transcript path without editing files or running tests | No |
