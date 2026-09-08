@@ -29,5 +29,6 @@ This directory contains the authoritative Engineering Decision Records for AI As
 | [EDR-006](EDR-006-learning-process.md) | Required learning process and documentation | Accepted |
 | [EDR-007](EDR-007-learning-capture-and-grammar-analysis.md) | Learning capture and grammar-analysis workflow | Accepted |
 | [EDR-008](EDR-008-study-materials-reporting-and-export.md) | Study materials, reporting, printing, and export | Accepted |
+| [EDR-009](EDR-009-application-wide-diagnostics-and-client-error-capture.md) | Application-wide dual-sink diagnostics and browser error capture | Proposed |
 
 EDR-001 through EDR-008 were explicitly approved on 2026-09-06. They are now immutable. Any material change requires a new EDR that amends or supersedes the affected record.
