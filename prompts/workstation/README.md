@@ -45,3 +45,4 @@ Numbers describe the order in which prompts should be used. Never reuse or renum
 | 003 | [Inspect stuck browser transcription](003-inspect-stuck-browser-transcription.md) | Trace the microphone-to-transcript path without editing files or running tests | No |
 | 004 | [Review observability and voice remediation](004-review-observability-and-voice-remediation.md) | Validate EDR-009 and REM-001 against the workstation without changes | No |
 | 005 | [Implement observability and voice remediation](005-implement-observability-and-voice-remediation.md) | Execute accepted REM-001 only after its exact approval gate | Conditional |
+| 006 | [Verify repositories and select the next approved action](006-next-approved-workstation-action.md) | Distinguish the control package from the Local Corporate Writing Assistant application and reconcile workstation state | No |
