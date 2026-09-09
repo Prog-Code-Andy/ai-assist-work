@@ -21,9 +21,16 @@ Use a three-digit sequence and descriptive name:
 004-review-observability-and-voice-remediation.md
 005-implement-observability-and-voice-remediation.md
 006-next-approved-workstation-action.md
+007-review-and-record-remediation-approval.md
 ```
 
-Numbers describe the order in which prompts should be used. Never reuse or renumber a published prompt. A correction receives the next number and links to the prompt it replaces.
+Numbers preserve publication order. Never reuse or renumber a published prompt. A correction receives the next number and links to the prompt it replaces. A later validation or approval prompt may explicitly direct the user back to an earlier prepared implementation prompt.
+
+The current remediation execution order is:
+
+```text
+004 → 006 → 007 → 005
+```
 
 ## Rules
 
@@ -46,3 +53,4 @@ Numbers describe the order in which prompts should be used. Never reuse or renum
 | 004 | [Review observability and voice remediation](004-review-observability-and-voice-remediation.md) | Validate EDR-009 and REM-001 against the workstation without changes | No |
 | 005 | [Implement observability and voice remediation](005-implement-observability-and-voice-remediation.md) | Execute accepted REM-001 only after its exact approval gate | Conditional |
 | 006 | [Verify repositories and select the next approved action](006-next-approved-workstation-action.md) | Distinguish the control package from the Local Corporate Writing Assistant application and reconcile workstation state | No |
+| 007 | [Review and record remediation approval](007-review-and-record-remediation-approval.md) | Review final EDR-009/REM-001 and record status only after a separate explicit approval message | No |

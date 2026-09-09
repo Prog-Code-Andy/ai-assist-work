@@ -72,6 +72,14 @@ Debug mode must expire automatically, remain content-free, and show its active s
 
 Every eligible operation uses a correlation identifier across frontend events, FastAPI events, model/transcription activity, and terminal success/failure events. Events record timestamp, severity, component, event code, lifecycle status, safe error category, safe source location, and schema version. Exception text and stack traces are sanitized and bounded.
 
+### Adoption and phase boundary
+
+- The first implementation is the corrective package `REM-001`, not a reopening or rewrite of completed Phase 02 or Phase 04 history.
+- `REM-001` may repair the confirmed recorder defect and the observability coverage needed to diagnose it, but it must not complete or advance Phase 06.
+- Phase 06 remains separately gated while the corrective package is implemented and reviewed.
+- The exact application-file allowlist and targeted test commands are owned by `REM-001`. Work outside that boundary requires a reported blocker and separate user approval.
+- Existing compatible JSONL records remain readable. Any schema evolution must be versioned and documented rather than silently reinterpreting stored events.
+
 ## Consequences
 
 - Browser failures that occur before a feature API request can be diagnosed locally.
@@ -100,4 +108,3 @@ The corrective work package must prove dual-sink parity for representative event
 - EDR-004: Data storage and retention
 - EDR-005: Model observability and evaluation
 - EDR-006: Learning process
-

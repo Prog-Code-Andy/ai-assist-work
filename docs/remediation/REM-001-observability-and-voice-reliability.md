@@ -42,6 +42,28 @@ The intended backend path already uses local FastAPI and local `faster-whisper`;
 - Emit sanitized correlated lifecycle/error events without audio or transcript content.
 - Preserve the existing local `MediaRecorder → FastAPI → faster-whisper` architecture.
 
+## Verified implementation boundary
+
+Workstation prompts 004 and 006 confirmed the current application structure. Start with only this application-file allowlist; do not repeat a repository-wide audit.
+
+| Application file | Authorized reason |
+|---|---|
+| `app/config.py` | Diagnostic level, file, rotation, retention, disk-cap, and bounded debug configuration |
+| `app/diagnostics/jsonl_logger.py` | Unified sanitized event pipeline, JSONL/plain-text parity, rotation, retention, health, and redaction |
+| `app/main.py` | Startup marker, FastAPI lifecycle/exception coverage, loopback diagnostic endpoint, health/preview/folder APIs, and correlation |
+| `app/transcription.py` | Local transcription lifecycle/error events and safe terminal cleanup evidence |
+| `app/db/repository.py` | SQLite initialization, migration, transaction-failure, retention, and protected-operation events |
+| `app/static/app.js` | Frontend error bridge, recorder lifecycle repair, timeout/cancellation recovery, and diagnostic UI behavior |
+| `app/static/index.html` | Logs and Diagnostics controls and status fields |
+
+A new helper may be added only under `app/diagnostics/` when keeping it inside `jsonl_logger.py` would materially reduce cohesion or testability. Its purpose and need must be stated before creation. A directly required schema, settings, or test-support file outside this allowlist is a blocker: report the exact path and reason, then wait for user approval before editing it.
+
+Control-repository writes are limited to:
+
+- `reports/remediations/REM-001-completion.md`;
+- `docs/learning/troubleshooting/REM-001-application-logs-and-async-recorder.md`;
+- the REM-001 status fields after all acceptance criteria pass.
+
 ## Explicit exclusions
 
 - Remaining Phase 04 features such as final language-mode UX, complete silence behavior, packaging, or broader voice redesign.
@@ -63,7 +85,24 @@ The intended backend path already uses local FastAPI and local `faster-whisper`;
 
 ## Targeted test plan
 
-Run only new or directly affected tests:
+Run only new or directly affected tests. The approved existing test-file allowlist is:
+
+- `tests/test_jsonl_logger.py`;
+- `tests/test_feedback_and_diagnostics_api.py`;
+- `tests/test_voice_api.py`;
+- `tests/test_voice_cleanup.py`;
+- `tests/test_transcription.py`.
+
+Use these two bounded commands from the application repository unless the project's existing documented environment requires the same selectors through its established runner:
+
+```text
+python -m pytest -q tests/test_jsonl_logger.py tests/test_feedback_and_diagnostics_api.py
+python -m pytest -q tests/test_voice_api.py tests/test_voice_cleanup.py tests/test_transcription.py
+```
+
+New tests must be placed in one of those five files. Do not create a new test framework. Before running either command, list its selected test node IDs; if a listed file does not exist or collection fails, stop and report the exact mismatch rather than broadening test discovery.
+
+The selected tests must cover:
 
 - event schema acceptance/rejection, size bounds, rate limiting, duplicate suppression, and recursive-failure prevention;
 - JSONL/plain-log parity, rotation, retention, disk cap, startup marker, and logging-health tests;
@@ -72,10 +111,10 @@ Run only new or directly affected tests:
 - voice Stop preserves MIME type, produces one non-empty Blob, and sends exactly one transcription POST;
 - voice error, empty Blob, timeout, duplicate Stop, and Cancel restore the correct UI and cleanup state;
 - one directly related FastAPI transcription endpoint test with sanitized fixture data;
-- one short existing Writer smoke test only if shared frontend infrastructure changed;
+- one existing Writer smoke test by exact node ID only if non-voice Writer behavior or shared request infrastructure changed; identify it with `rg`, do not collect or run an entire additional test file;
 - one manual 3–5 second browser recording confirming a POST, local transcription review, log correlation, and cleanup.
 
-Do not run unrelated completed-phase tests or the full suite. Record exact commands, selected tests, intentionally omitted tests, and any justified scope expansion.
+Do not run `tests/test_voice_language_routing.py`, unrelated completed-phase tests, an entire additional smoke-test file, or the full suite unless the implementation actually changes the corresponding behavior and the user separately approves the precise expansion. Record exact commands, selected tests, intentionally omitted tests, and any approved scope expansion.
 
 ## Acceptance criteria
 
@@ -92,4 +131,3 @@ Do not run unrelated completed-phase tests or the full suite. Record exact comma
 ## Completion and approval gate
 
 After completing the work, create the remediation report and learning note, summarize changed files and targeted tests, state whether any acceptance criterion remains blocked, and stop. The user must review the remediation independently from the next implementation phase approval.
-
